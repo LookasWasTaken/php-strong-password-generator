@@ -49,25 +49,24 @@ function generator($passLength)
         <div class="row my-3">
             <div class="col-12 my-3">
                 <h1>Strong Password Generator</h1>
-                <h3>Genera una password sicura</h3>
             </div>
             <div class="col-6 my-3">
                 <form class="p-3 bg-light text-dark rounded" action="index.php" method="get">
                     <div class="mb-3 d-flex align-items-center gap-3">
-                        <label for="length" class="form-label">Lunghezza</label>
-                        <input type="number" min="3" max="14" class="form-control" name="length" id="length" aria-describedby="helpId" placeholder="Inserisci la lunghezza della password">
+                        <label for="length" class="form-label">Length</label>
+                        <input type="number" min="3" max="14" class="form-control" name="length" id="length" aria-describedby="helpId" placeholder="HHow many characters will your password have?">
                     </div>
                     <div class="d-flex justify-content-between align-item-center">
-                        <h6>Consenti una o più ripetizioni</h6>
+                        <h6>Allows one or more repetitions</h6>
                         <div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="ripet" id="radio1" checked>
+                                <input class="form-check-input" type="radio" name="repetitions" id="radio1" checked>
                                 <label class="form-check-label" for="radio1">
                                     Si
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="ripet" id="radio2">
+                                <input class="form-check-input" type="radio" name="repetitions" id="radio2">
                                 <label class="form-check-label" for="radio2">
                                     No
                                 </label>
@@ -97,6 +96,9 @@ function generator($passLength)
                         <button type="reset" class="btn btn-secondary">Reset</button>
                     </div>
                 </form>
+            </div>
+            <div class="col-12 mx-auto">
+                <h2>Your password is <?= $password ?></h2>
             </div>
         </div>
     </div>
