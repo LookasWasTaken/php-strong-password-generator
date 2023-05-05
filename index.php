@@ -1,5 +1,23 @@
 <?php
 
+if (!empty($_GET['lunghezza'])) {
+    $passLength = $_GET['lunghezza'];
+    var_dump($_GET["lunghezza"]);
+    $password = generator($passLength);
+    var_dump($password);
+};
+
+function generator ($passLength) {
+    // Create an array containing a range of elements
+    $lowerLetters = range('a', 'z');
+    $upperLetters = range('A', 'Z');
+    $numbers = range('0', '9');
+    // Convert a string to an array
+    $symbols = str_split('!?#&$%');
+    // Merge one or more arrays
+    $characters = array_merge($lowerLetters, $upperLetters, $numbers, $symbols);
+};
+
 ?>
 
 <!DOCTYPE html>
@@ -26,20 +44,20 @@
             <div class="col-6 my-3">
                 <form class="p-3 bg-light text-dark rounded" action="index.php" method="get">
                     <div class="mb-3 d-flex align-items-center gap-3">
-                        <label for="" class="form-label">Password</label>
-                        <input type="text" class="form-control" name="password" id="password" aria-describedby="helpId" placeholder="inserisci una password">
+                        <label for="lunghezza" class="form-label">Lunghezza</label>
+                        <input type="number" min="3" max="14" class="form-control" name="lunghezza" id="lunghezza" aria-describedby="helpId" placeholder="Inserisci la lunghezza della password">
                     </div>
                     <div class="d-flex justify-content-between align-item-center">
                         <h6>Consenti una o più ripetizioni</h6>
                         <div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="ripetizioni" id="radio1">
+                                <input class="form-check-input" type="radio" name="ripetizioni" id="radio1" checked>
                                 <label class="form-check-label" for="radio1">
                                     Si
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="ripetizioni" id="radio2" checked>
+                                <input class="form-check-input" type="radio" name="ripetizioni" id="radio2">
                                 <label class="form-check-label" for="radio2">
                                     No
                                 </label>
