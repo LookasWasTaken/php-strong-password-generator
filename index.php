@@ -24,7 +24,7 @@
                 <h3>Genera una password sicura</h3>
             </div>
             <div class="col-6 my-3">
-                <form class="p-3 bg-light text-dark rounded" action="functions.php" method="get">
+                <form class="p-3 bg-light text-dark rounded" action="index.php" method="get">
                     <div class="mb-3 d-flex align-items-center gap-3">
                         <label for="" class="form-label">Password</label>
                         <input type="text" class="form-control" name="password" id="password" aria-describedby="helpId" placeholder="inserisci una password">
