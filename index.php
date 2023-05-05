@@ -1,13 +1,12 @@
 <?php
 
-if (!empty($_GET['lunghezza'])) {
-    $passLength = $_GET['lunghezza'];
-    var_dump($_GET["lunghezza"]);
+if (!empty($_GET['length'])) {
+    $passLength = $_GET['length'];
     $password = generator($passLength);
-    var_dump($password);
 };
 
-function generator ($passLength) {
+function generator($passLength)
+{
     // Create an array containing a range of elements
     $lowerLetters = range('a', 'z');
     $upperLetters = range('A', 'Z');
@@ -16,6 +15,17 @@ function generator ($passLength) {
     $symbols = str_split('!?#&$%');
     // Merge one or more arrays
     $characters = array_merge($lowerLetters, $upperLetters, $numbers, $symbols);
+    // Declaring of variables Password
+
+    $password = "";
+
+
+    for ($i = 0; $i < $passLength; $i++) {
+        // Generate a random integer
+        $randomNumber = rand(0, (count($characters) - 1));
+        $password .= $characters[$randomNumber];
+    }
+    return $password;
 };
 
 ?>
@@ -44,20 +54,20 @@ function generator ($passLength) {
             <div class="col-6 my-3">
                 <form class="p-3 bg-light text-dark rounded" action="index.php" method="get">
                     <div class="mb-3 d-flex align-items-center gap-3">
-                        <label for="lunghezza" class="form-label">Lunghezza</label>
-                        <input type="number" min="3" max="14" class="form-control" name="lunghezza" id="lunghezza" aria-describedby="helpId" placeholder="Inserisci la lunghezza della password">
+                        <label for="length" class="form-label">Lunghezza</label>
+                        <input type="number" min="3" max="14" class="form-control" name="length" id="length" aria-describedby="helpId" placeholder="Inserisci la lunghezza della password">
                     </div>
                     <div class="d-flex justify-content-between align-item-center">
                         <h6>Consenti una o più ripetizioni</h6>
                         <div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="ripetizioni" id="radio1" checked>
+                                <input class="form-check-input" type="radio" name="ripet" id="radio1" checked>
                                 <label class="form-check-label" for="radio1">
                                     Si
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="ripetizioni" id="radio2">
+                                <input class="form-check-input" type="radio" name="ripet" id="radio2">
                                 <label class="form-check-label" for="radio2">
                                     No
                                 </label>
